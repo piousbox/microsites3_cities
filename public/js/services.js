@@ -11,8 +11,8 @@ angular.module('myApp.services', []).
 var myApp = angular.module('myApp');
 
 myApp.factory('City', ['$resource', function($resource) {
-    var url_base = "http://api.travel-guide.mobi/api";
-    var url = "http://api.travel-guide.mobi/api/cities/:id.json";
+    var url_base = "http://staging.api.travel-guide.mobi/api";
+    var url = "http://staging.api.travel-guide.mobi/api/cities/:id.json";
     var defaults = {};
     var actions = { index: { method: 'GET', params: undefined, isArray: true, headers: undefined },
                     show:  { method: 'GET', isArray: false,
