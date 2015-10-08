@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('myApp.services', []);
-var myApp = angular.module('myApp');
+// angular.module('myApp.services', []);
 /* Services */
 
-myApp.value('version', '0.1');
+angular.module('myApp.services', []).
+  value('version', '0.1');
+
+// myApp.value('version', '0.1');
+
+var myApp = angular.module('myApp');
 
 myApp.factory('City', ['$resource', function($resource) {
     var url_base = "http://api.local:3002/api";

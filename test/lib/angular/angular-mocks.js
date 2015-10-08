@@ -1921,7 +1921,8 @@ if(window.jasmine || window.mocha) {
 
   var currentSpec = null,
       isSpecRunning = function() {
-        return currentSpec && (window.mocha || currentSpec.queue.running);
+        return !!currentSpec; // _vp_ 20151007
+        // return currentSpec && (window.mocha || currentSpec.queue.running);
       };
 
 

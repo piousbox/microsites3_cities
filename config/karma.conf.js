@@ -1,3 +1,4 @@
+
 module.exports = function(config){
     config.set({
     basePath : '../',
@@ -20,7 +21,14 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome'],
+    // browsers : ['Chrome'],
+    browsers: ['chrome_without_security'],
+    customLaunchers: {
+        chrome_without_security: {
+            base: 'Chrome',
+            flags: ['--disable-web-security']
+        }
+    },
 
     plugins : [
             'karma-junit-reporter',

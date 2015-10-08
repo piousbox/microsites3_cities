@@ -1,3 +1,5 @@
+
+
 logs/*
 !.gitkeep
 node_modules/
@@ -7,3 +9,5 @@ tmp
 *trash
 vendor
 \#*
+config/npm-debug.log
+
