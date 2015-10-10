@@ -10,22 +10,17 @@ myApp.controller('MyCtrl1', [function() {
 myApp.controller('MyCtrl2', [function() {
 }]);
 
-function city_path(city) {
-    return "/cities/" + city.cityname;
-}
-
-myApp.controller('CitiesIndexCtrl', ['$scope', 'City', function($scope, City) {
+myApp.controller('CitiesIndexCtrl', ['$scope', 'City', 'PathHelper', function($scope, City, paths) {
     City.index({}, function(cities) {
         $scope.cities = cities;
-        $scope.city_path = function(city) {
-            return city_path(city);
-        }
+        $scope.paths = paths;
     });
 }]);
 
-myApp.controller('CitiesShowCtrl', ["$scope", "$routeParams", 'City', function($scope, $routeParams, City) {
+myApp.controller('CitiesShowCtrl', ["$scope", "$routeParams", 'City', 'PathHelper', function($scope, $routeParams, City, paths) {
     console.log('route params', $routeParams);
     City.show({ cityname: $routeParams.cityname }, function(data) {
-        $scope.city = { name: data.name };
+        $scope.city = data;
+        $scope.paths = paths;
     });
 }]);

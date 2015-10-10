@@ -11,3 +11,4 @@ vendor
 \#*
 config/npm-debug.log
 
+public/js/config.js

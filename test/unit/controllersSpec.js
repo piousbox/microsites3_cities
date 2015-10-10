@@ -7,9 +7,11 @@ describe('controllers', function(){
 
   it('should ....', inject(function() {
     //spec body
+    expect(true).toEqual(true);
   }));
 
   it('should ....', inject(function() {
     //spec body
+    expect(true).toEqual(true);
   }));
 });
