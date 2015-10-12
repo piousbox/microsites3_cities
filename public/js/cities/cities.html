@@ -1,0 +1,16 @@
+
+<h1>Cities!</h1>
+
+<ul>
+  <li ng-repeat="city in cities | limitTo: 5 " ui-sref-active="active" >
+    <a ui-sref="cities.show({cityname:city.cityname})">{{city.name}}</a>
+  </li>
+</ul>
+
+<div ui-view="cityShow" >
+  ui-view="cityShow"
+</div>
+
+<div ui-view >
+  Unnamed ui-view
+</div>

@@ -8,6 +8,7 @@ angular.module('myApp.services', [])
 
 var myApp = angular.module('myApp');
 
+/*
 myApp.factory('City', ['$resource', 'Config', function($resource, Config) {
     var url = Config.api_endpoint + "/cities/:id.json";
     var defaults = {};
@@ -30,3 +31,4 @@ myApp.factory('PathHelper', ['Config', function(Config) {
         }
     };
 }]);
+*/
