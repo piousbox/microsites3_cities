@@ -10,12 +10,6 @@ angular.module('myApp', [
   'myApp.cities.service',
   'myApp.reports'
 
-  // 'myApp.filters',
-  // 'myApp.services',
-  // 'myApp.cities',
-  // 'myApp.directives',
-  // 'myApp.controllers'
-
 ]).
 run(['$rootScope', '$state', '$stateParams', function(
       $rootScope,   $state,   $stateParams) {
@@ -32,11 +26,23 @@ config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProv
     $stateProvider
         .state('home', {
             url: '/',
-            template: "Welcome home ui router"
+            templateUrl: "partials/cities/list.html",
+            resolve: {
+                City: ['City', function(City) {
+                    return City;
+                }]
+            },
+            controller: ['$scope', '$state', 'City',
+                function( $scope,   $state,   City) {
+                    City.index({}, function(cities) {
+                        $scope.cities = cities;
+                    });
+                }]
+            
         })
         .state('about', {
             url: '/about',
-            template: "About template for real."
-        })
+            template: "<h5>About template</h5>"
+        });
     
 }]);
