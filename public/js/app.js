@@ -5,10 +5,13 @@ angular.module('myApp', [
   'ngResource',
   'ngAnimate',
   'ui.router',
+  'ngSanitize',
 
   'myApp.cities',
   'myApp.cities.service',
-  'myApp.reports'
+
+  'myApp.reports',
+  'myApp.reports.service'
 
 ]).
 run(['$rootScope', '$state', '$stateParams', function(

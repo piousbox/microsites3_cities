@@ -41,5 +41,24 @@ angular.module('myApp.cities', ['ui.router']).
                         }]
                     }
                 }
+            }).
+            state('cities.report', {
+                url: '/reports/show/:name_seo',
+                parent: 'cities.city',
+                views: {
+                    '': {
+                        templateUrl: '/partials/reports/show.html',
+                        resolve: {
+                            Report: ['Report', function(Report) {
+                                return Report;
+                            }]
+                        },
+                        controller: ['$scope', '$stateParams', 'Report', function($scope, $stateParams, Report) {
+                            Report.show({ name_seo: $stateParams.name_seo }, function(data) {
+                                $scope.report = data;
+                            });
+                        }]
+                    }
+                }
             });
     }]);
