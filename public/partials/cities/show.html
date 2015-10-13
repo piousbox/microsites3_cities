@@ -1,11 +1,14 @@
 
-Showing City {{ city.name }}.
+<h3>City: {{ city.name }}</h3>
 
-<div class="city-reports">
-  <h3>Reports</h3>
-  <ul>
-    <li ng-repeat="report in city.reports">
-      <a href="{{ paths.city_report_path( city, report ) }}">{{ report.name }}</a>
-    </li>
-  </ul>
-</div>
+<h4>Reports</h4>
+<ul>
+  <li ng-repeat="report in city.reports">
+    <a ui-sref="cities.report({cityname: city.cityname, name_seo: report.name_seo})">
+      {{ report.name }}
+    </a>
+  </li>
+</ul>
+
+<div ui-view></div>
+<div ui-view="reports-show"></div>

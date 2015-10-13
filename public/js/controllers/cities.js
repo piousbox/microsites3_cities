@@ -2,6 +2,7 @@
 angular.module('myApp.cities', ['ui.router']).
     config(['$stateProvider', '$urlRouterProvider', function(
              $stateProvider,   $urlRouterProvider) {
+
         $stateProvider.
             state('cities', {
                 abstract: true,
@@ -23,21 +24,47 @@ angular.module('myApp.cities', ['ui.router']).
                 url: '',
                 templateUrl: 'js/cities/index.html'
             }).
-            state('cities.show', {
+            state('cities.city', {
+                abstract: true,
                 url: '/travel-to/:cityname',
+                templateUrl: 'js/cities/show.html',
+                resolve: {
+                },
+                controller: [function(){ 
+                }]
+            }). 
+            state('cities.city.show', {
+                url: '',
                 views: {
-                    // '': {
-                    //     templateurl: 'js/cities/show.html'
-                    // },
-                    'cities_show': {
+                    '': {
                         templateUrl: 'js/cities/show.html',
                         controller: ['$scope', 'City', '$stateParams', function($scope, City, $stateParams) {
                             City.show({ cityname: $stateParams.cityname }, function(data) {
                                 $scope.city = data;
                             });
                         }]
+                    },
+                    '2-city-show': {
+                        templateUrl: 'js/cities/show.html',
+                        controller: ['$scope', 'City', '$stateParams', function($scope, City, $stateParams) {
+                            City.show({ cityname: $stateParams.cityname }, function(data) {
+                                $scope.city = data;
+                            });
+                        }]
+                    },
+                    'reports-show': {
+                        template: 'this is reports-show 222'
                     }
-                },
-                templateUrl: 'js/cities/show.html'
+                }
+            }).
+            state('cities.city.report', {
+                url: 'reports/show/:name_seo',
+                views: {
+                    'reports-show': {
+                        templateUrl: 'js/reports/show.html',
+                        controller: [function() {
+                        }]
+                    }
+                }
             });
     }]);

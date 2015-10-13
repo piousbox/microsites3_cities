@@ -7,7 +7,8 @@ angular.module('myApp', [
   'ui.router',
 
   'myApp.cities',
-  'myApp.cities.service'
+  'myApp.cities.service',
+  'myApp.reports'
 
   // 'myApp.filters',
   // 'myApp.services',
@@ -37,11 +38,5 @@ config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProv
             url: '/about',
             template: "About template for real."
         })
-
-    // $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-    // $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-    // $routeProvider.when('/cities', {templateUrl: 'partials/cities/index.html', controller: 'CitiesIndexCtrl'});
-    // $routeProvider.when('/cities/:cityname', {templateUrl: 'partials/cities/show.html', controller: 'CitiesShowCtrl'});
-    // $routeProvider.otherwise({redirectTo: '/view1'});
     
 }]);

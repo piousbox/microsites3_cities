@@ -1,6 +1,11 @@
 
-Cities index.
+<h1>Cities!</h1>
 
 <ul>
-  <li ng-repeat="city in cities"><a href="{{ paths.city_path(city) }}">{{ city.name }}</a></li>
+  <li ng-repeat="city in cities | limitTo: 5 " ui-sref-active="active" >
+    <a ui-sref="cities.city.show({cityname:city.cityname})">{{city.name}}</a>
+  </li>
 </ul>
+
+<div ui-view></div>
+<div ui-view="city-show"></div>
