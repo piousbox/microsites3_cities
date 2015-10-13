@@ -21,6 +21,23 @@ angular.module('myApp.cities', ['ui.router']).
             }).
             state('cities.list', {
                 url: '',
-                templateUrl: 'js/contacts/cities.list.html'
+                templateUrl: 'js/cities/index.html'
+            }).
+            state('cities.show', {
+                url: '/travel-to/:cityname',
+                views: {
+                    // '': {
+                    //     templateurl: 'js/cities/show.html'
+                    // },
+                    'cities_show': {
+                        templateUrl: 'js/cities/show.html',
+                        controller: ['$scope', 'City', '$stateParams', function($scope, City, $stateParams) {
+                            City.show({ cityname: $stateParams.cityname }, function(data) {
+                                $scope.city = data;
+                            });
+                        }]
+                    }
+                },
+                templateUrl: 'js/cities/show.html'
             });
     }]);
