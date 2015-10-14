@@ -1,8 +1,11 @@
 
+<!-- partials/cities/city.html -->
+<!-- abstract -->
+
 <h3>City: {{ city.name }}</h3>
 
 <h4>Reports</h4>
-<ul>
+<ul class="large-block-grid-2" >
   <li ng-repeat="report in city.reports">
     <a ui-sref="cities.report({cityname: city.cityname, name_seo: report.name_seo})">
       {{ report.name }}
@@ -10,4 +13,6 @@
   </li>
 </ul>
 
-ui-reports:<div ui-view="ui-reports"></div>
+<div ui-view ></div>
+
+

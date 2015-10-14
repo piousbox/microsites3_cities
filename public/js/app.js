@@ -5,15 +5,13 @@ angular.module('myApp', [
   'ngResource',
   'ngAnimate',
   'ui.router',
+  'ngSanitize',
 
   'myApp.cities',
-  'myApp.cities.service'
+  'myApp.cities.service',
 
-  // 'myApp.filters',
-  // 'myApp.services',
-  // 'myApp.cities',
-  // 'myApp.directives',
-  // 'myApp.controllers'
+  'myApp.reports',
+  'myApp.reports.service'
 
 ]).
 run(['$rootScope', '$state', '$stateParams', function(
@@ -31,17 +29,23 @@ config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProv
     $stateProvider
         .state('home', {
             url: '/',
-            template: "Welcome home ui router"
+            templateUrl: "partials/cities/list.html",
+            resolve: {
+                City: ['City', function(City) {
+                    return City;
+                }]
+            },
+            controller: ['$scope', '$state', 'City',
+                function( $scope,   $state,   City) {
+                    City.index({}, function(cities) {
+                        $scope.cities = cities;
+                    });
+                }]
+            
         })
         .state('about', {
             url: '/about',
-            template: "About template for real."
-        })
-
-    // $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-    // $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-    // $routeProvider.when('/cities', {templateUrl: 'partials/cities/index.html', controller: 'CitiesIndexCtrl'});
-    // $routeProvider.when('/cities/:cityname', {templateUrl: 'partials/cities/show.html', controller: 'CitiesShowCtrl'});
-    // $routeProvider.otherwise({redirectTo: '/view1'});
+            template: "<h5>About template</h5>"
+        });
     
 }]);
