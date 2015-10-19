@@ -42,6 +42,7 @@ config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProv
                 function( $scope,   $state,   City) {
                     City.index({}, function(cities) {
                         $scope.cities = cities;
+                        $scope.map = { center: { latitude: 42.1451, longitude: -100.6680 }, zoom: 4 }
                     });
                 }]
             
