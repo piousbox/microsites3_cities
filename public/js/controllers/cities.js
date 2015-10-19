@@ -14,12 +14,12 @@ angular.module('myApp.cities', ['ui.router']).
                                 return City;
                             }]
                         },
-                        controller: ['$scope', '$state', 'City',
+                        controller: 'CitiesIndexController' /* ['$scope', '$state', 'City',
                                      function( $scope,   $state,   City) {
                                          City.index({}, function(cities) {
                                              $scope.cities = cities;
                                          });
-                                     }]
+                                     }] */
                     }
                 }
             }).
@@ -62,4 +62,12 @@ angular.module('myApp.cities', ['ui.router']).
                     }
                 }
             });
-    }]);
+    }]).
+    controller('CitiesIndexController',
+               [ '$scope', '$state', 'City',
+        function( $scope,   $state,   City) {
+            City.index({}, function(cities) {
+                $scope.cities = cities;
+            });
+        }]
+    );
