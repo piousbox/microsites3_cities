@@ -4,6 +4,9 @@
 
 <h3>City: {{ city.name }}</h3>
 
+<h4>Map</h4>
+<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+
 <h4>Reports</h4>
 <ul class="large-block-grid-2" >
   <li ng-repeat="report in city.reports">

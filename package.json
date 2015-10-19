@@ -13,6 +13,7 @@
     "phantomjs": "~1.9"
   },
   "dependencies": {
+    "angulartics-google-analytics": "^0.1.1",
     "karma": "^0.13.10",
     "karma-cli": "^0.1.1"
   }

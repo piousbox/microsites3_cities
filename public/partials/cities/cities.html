@@ -4,7 +4,7 @@
 <h4>Cities Cities</h4>
 
 <ul class="large-block-grid-4" >
-  <li ng-repeat="city in cities | limitTo: 16 " ui-sref-active="active" >
+  <li ng-repeat="city in cities" ui-sref-active="active" >
     <a ui-sref="cities.city({cityname:city.cityname})">{{city.name}}</a>
   </li>
 </ul>

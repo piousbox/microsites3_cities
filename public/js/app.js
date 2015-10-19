@@ -6,6 +6,9 @@ angular.module('myApp', [
   'ngAnimate',
   'ui.router',
   'ngSanitize',
+  'uiGmapgoogle-maps',
+  'angulartics',
+  'angulartics.google.analytics',
 
   'myApp.cities',
   'myApp.cities.service',

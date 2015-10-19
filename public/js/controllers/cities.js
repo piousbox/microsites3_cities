@@ -35,8 +35,9 @@ angular.module('myApp.cities', ['ui.router']).
                             }]
                         },
                         controller: ['$scope', '$stateParams', 'City', function($scope, $stateParams, City) {
-                            City.show({ cityname: $stateParams.cityname }, function(data) {
-                                $scope.city = data
+                            City.show({ cityname: $stateParams.cityname }, function(city) {
+                                $scope.city = city;
+                                $scope.map = { center: { latitude: city.x, longitude: city.y }, zoom: 8 };
                             });
                         }]
                     }
