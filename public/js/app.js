@@ -32,20 +32,22 @@ config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProv
     $stateProvider
         .state('home', {
             url: '/',
-            templateUrl: "partials/welcome/home.html",
-            resolve: {
-                City: ['City', function(City) {
-                    return City;
-                }]
-            },
-            controller: ['$scope', '$state', 'City',
-                function( $scope,   $state,   City) {
-                    City.index({}, function(cities) {
-                        $scope.cities = cities;
-                        $scope.map = { center: { latitude: 42.1451, longitude: -100.6680 }, zoom: 4 }
-                    });
-                }]
-            
+            views: {
+                "main-left": {
+                    // templateUrl: "partials/welcome/home.html",
+                    templateUrl: "partials/cities/cities_map.html",
+                    // resolve: {
+                    //     City: ['City', function(City) {
+                    //         return City;
+                    //     }]
+                    // },
+                    controller: "CitiesIndexController"
+                },
+                "main-right": {
+                    templateUrl: "partials/cities/cities_list.html",
+                    controller: "CitiesIndexController"
+                }
+            }
         })
         .state('about', {
             url: '/about',

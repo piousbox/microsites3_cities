@@ -22,8 +22,11 @@
   </div>
 
   <div class="row">
-    <div class="large-12 columns">
-      <div ui-view></div>
+    <div class="large-6 columns">
+      <div ui-view="main-left"  class="slide" ></div>
+    </div>
+    <div class="large-6 columns">
+      <div ui-view="main-right" class="slide" ></div>
     </div>
   </div>
   
@@ -86,3 +89,6 @@ $state full url = {{$state.$current.url.source }}
   
 </body>
 </html>
+
+
+

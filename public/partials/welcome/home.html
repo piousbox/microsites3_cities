@@ -1,23 +1,35 @@
 
 <!-- partials/welcome/home.html -->
 
-<h4>Home. Cities List</h4>
+<div class="row">
+  <div class="large-6 columns">
+    <h4>partials / welcome / home</h4>
 
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-  <ui-gmap-marker ng-repeat="city in cities | limitTo: 8 "
-                  idKey="city.cityname"
-                  coords="city.coords"
-                  >
-  </ui-gmap-marker>
-</ui-gmap-google-map>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+      <ui-gmap-marker ng-repeat="city in cities | limitTo: 8 "
+                      idKey="city.cityname"
+                      coords="city.coords"
+                      >
+      </ui-gmap-marker>
+    </ui-gmap-google-map>
 
-<ul class="large-block-grid-4" >
-  <li ng-repeat="city in cities | limitTo: 8 " ui-sref-active="active" >
-    <a ui-sref="cities.city({cityname: city.cityname})">{{city.name}}</a>
-  </li>
-</ul>
+    <ul class="large-block-grid-4" >
+      <li ng-repeat="city in cities | limitTo: 8 " ui-sref-active="active" >
+        <a ui-sref="cities.city({cityname: city.cityname})">{{city.name}}</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="large-6 columns">
+    <ul class="menu-right">
+      <li>Newsfeed</li>
+      <li>Events</li>
+    </ul>
+  </div>
 
-<!-- authentication -->
+<!-- 
+  -- authentication 
+  --
 <form name="loginForm" ng-controller="LoginController"
       ng-submit="login(credentials)" novalidate>
   <label for="email">Email:</label>
@@ -44,3 +56,4 @@
   </div>
   <div class="actions"><input type="submit" value="Sign in" name="commit"></div>
 </form>
+-->
